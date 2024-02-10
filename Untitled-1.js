@@ -7,7 +7,7 @@
     unless stated you can use a for cycle for some part
 */
 
-
+/*
 1. User Account Management:
 Given an array of user objects, each containing a username and age property, 
 create a new array containing only the usernames of users who are above 18 years old. 
@@ -23,7 +23,6 @@ Expected output:
     ["alice", "bob", "diana"]
 
 
-sdsad
 /*
 2. Message Filtering:
    Given an array of message objects, each containing a sender, recipient, 
