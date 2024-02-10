@@ -40,6 +40,23 @@ Expected output:
     getMessagesFromPerson('bob') => "Hi there! How are you?"
 */
 
+function getMessagesFromPerson(user) {
+    const messages = [
+        { sender: "alice", recipient: "bob", message: "Hello!" },
+        { sender: "bob", recipient: "alice", message: "Hi there!" },
+        { sender: "bob", recipient: "alice", message: "How are you?" },
+        { sender: "alice", recipient: "bob", message: "Yo, you there?" },
+    ];
+
+    const filteredMessages = messages
+        .filter(message => message.sender === user)
+        .map(message => message.message); 
+
+    return filteredMessages.join(' '); 
+}
+
+console.log(getMessagesFromPerson('bob')); 
+
 
 /*
 3. Product Pricing:
@@ -78,7 +95,38 @@ Input:
 Expected output:
     [ [ 'IT', 210000 ], [ 'HR', 95000 ] ]
 */
+const employees = [
+    { name: "Alice", salary: 50000, department: "HR" },
+    { name: "Bob", salary: 60000, department: "IT" },
+    { name: "Charlie", salary: 45000, department: "HR" },
+    { name: "Dean", salary: 80000, department: "IT" },
+    { name: "Earl", salary: 70000, department: "IT" },
+    { name: "Fred", salary: 40000, department: "R&D" },
+];
 
+function calculateDepartemtntSalaries(employees){
+    const depSalary = employees.reduce((acc, val) => {
+        if(acc[val.department]) {
+           acc[val.department] += val.salary;
+           console.log(val.salary);
+        }
+        else {
+            acc[val.department] = val.salary;
+            console.log(val.salary);
+        }
+        return acc;
+    }, {});
+
+    const filteredDepartments = Object.entries(depSalary)
+         .filter(([department, total]) => total >= 50000);
+         console.log(depSalary);
+
+         filteredDepartments.sort((a, b) => b[1] - a[1]);
+
+         return filteredDepartments;
+    }
+    
+    console.log(calculateDepartemtntSalaries(employees));
 
 /*
 5. Event Attendance Tracking:
@@ -116,3 +164,18 @@ Input:
 Expected output:
     ["Write report", "Schedule meeting"]
 */
+
+const tasks = [
+    { title: "Write report", priority: "low", completed: false },
+    { title: "Prepare presentation", priority: "medium", completed: true },
+    { title: "Schedule meeting", priority: "high", completed: false }
+];  
+const titles = tasks.reduce((acc, val) => {
+    if (!val.completed) {
+        console.log(tasks);
+        acc.push(val.title);
+    }
+    return acc;
+}, []);
+
+console.log(titles);
