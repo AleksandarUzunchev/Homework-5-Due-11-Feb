@@ -21,7 +21,22 @@ Input:
     ];
 Expected output:
     ["alice", "bob", "diana"]
+*/
 
+const users = [
+    { username: "charlie", age: 17 },
+    { username: "bob", age: 30 },
+    { username: "diana", age: 20 },
+    { username: "alice", age: 25 },
+];
+
+const filterUsers = users.filter(user => user.age > 18);
+    console.log(filterUsers)
+
+const usersAbove18 = filterUsers
+    .map(user => user.username)
+    .sort();
+    console.log(usersAbove18);
 
 /*
 2. Message Filtering:
@@ -59,6 +74,22 @@ Expected output:
         { name: "banana", price: 3.75, quantity: 5, totalCost: 18.75 }
     ]
 */
+
+const products = [
+    { name: "apple", price: 1.5, quantity: 10 },
+    { name: "banana", price: 0.75, quantity: 5 },
+    { name: "orange", price: 2, quantity: 0 }
+];
+
+const filterProducts = products.filter(product => product.quantity > 0)
+console.log(filterProducts)
+
+const totalCostProducts = filterProducts.map(product => ({...product, totalCost: product.price * product.quantity}))
+
+.sort((a, b) => a.totalCost - b.totalCost);
+
+console.log(totalCostProducts)
+
 /*
 4. Employee Salary Calculation:
    Given an array of employee objects, each containing a name, salary, and department 
