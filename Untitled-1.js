@@ -36,7 +36,7 @@ const filterUsers = users.filter(user => user.age > 18);
 const usersAbove18 = filterUsers
     .map(user => user.username)
     .sort();
-    console.log(usersAbove18);
+    console.log(usersAbove18); // Aleksandar Uzunchev
 
 /*
 2. Message Filtering:
@@ -70,7 +70,7 @@ function getMessagesFromPerson(user) {
     return filteredMessages.join(' '); 
 }
 
-console.log(getMessagesFromPerson('bob')); 
+console.log(getMessagesFromPerson('bob'));  // Sara Petreska
 
 
 /*
@@ -105,7 +105,7 @@ const totalCostProducts = filterProducts.map(product => ({...product, totalCost:
 
 .sort((a, b) => a.totalCost - b.totalCost);
 
-console.log(totalCostProducts)
+console.log(totalCostProducts) // Aleksandar Uzunchev
 
 /*
 4. Employee Salary Calculation:
@@ -157,7 +157,7 @@ function calculateDepartemtntSalaries(employees){
          return filteredDepartments;
     }
     
-    console.log(calculateDepartemtntSalaries(employees));
+    console.log(calculateDepartemtntSalaries(employees));   // Sara Petreska
 
 /*
 5. Event Attendance Tracking:
@@ -178,6 +178,26 @@ Expected output:
 
 */
 
+const events = [
+    { event: "Conference", attendees: 100, date: "2024-02-01" },
+    { event: "Workshop", attendees: 50, date: "2024-02-05" },
+    { event: "Seminar", attendees: 80, date: "2024-01-20" },
+    { event: "Workshop", attendees: 70, date: "2024-02-01" },
+    { event: "Seminar", attendees: 120, date: "2024-01-15" }
+];
+
+
+const filterEvents = events.filter(event => event.attendees >= 60);
+console.log(filterEvents)
+
+
+const totalAttendees = {};
+for (let i = 0; i < filterEvents.length; i++) {
+    const event = filterEvents[i];
+    totalAttendees[event.event] = (totalAttendees[event.event] || 0) + event.attendees;
+}
+
+console.log(totalAttendees) // Aleksandar Uzunchev
 
 /*
 6. Task Management:
@@ -209,4 +229,4 @@ const titles = tasks.reduce((acc, val) => {
     return acc;
 }, []);
 
-console.log(titles);
+console.log(titles);  // Sara Petreska
